@@ -2,7 +2,7 @@
       <div class="card-body">
         <h5 class="card-title text-center text-primary">{{hero.superhero}}</h5>
        
-            <img [src]="'/heroes/'+hero.id+'.jpg'" [alt]="hero.superhero">
+            <img [src]="hero | hero" [alt]="hero.superhero">
 
         
         <p class="card-text">

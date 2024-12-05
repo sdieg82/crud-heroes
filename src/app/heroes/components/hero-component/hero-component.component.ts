@@ -2,13 +2,15 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Hero } from '../../interfaces/Hero.interface';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { HeroPipe } from '../../pipes/hero.pipe';
 
 @Component({
   selector: 'app-hero-component',
   standalone: true,
   imports: [
     RouterLink,
-    CommonModule
+    CommonModule,
+    HeroPipe
   ],
   templateUrl: './hero-component.component.html',
   styleUrl: './hero-component.component.css'
