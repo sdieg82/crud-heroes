@@ -24,8 +24,7 @@ export class HeroPageComponent implements OnInit{
       private heroService:HeroesService,
       private activatedRoute:ActivatedRoute,
       private router:Router
-    ){
-    }
+    ){}
     ngOnInit(): void {
     this.activatedRoute.params.pipe(
         switchMap(({id})=> this.heroService.getHeroById(id))
@@ -36,16 +35,4 @@ export class HeroPageComponent implements OnInit{
     return
     })
   }
-
-
-    // getHeroId(){
-    //   this.heroService.getHeroById()
-    //   .subscribe
-    //   (
-    //     (result)=>{
-    //       console.log(result)
-    //     }
-    //   )
-    // }
-
 }
