@@ -1,31 +1,31 @@
-    <div class="card " >
-      <div class="card-body">
-        <h5 class="card-title text-center text-primary">{{hero.superhero}}</h5>
-       
-            <img [src]="hero | hero" [alt]="hero.superhero">
-
-        
-        <p class="card-text">
-          {{hero.first_appearance}}
-        </p>
-        <p class="card-text">
-          {{hero.characters}}
-        </p>
-        <p class="card-text">
-          {{hero.alter_ego}}
-        </p>
-        <p class="card-text text-muted">
-          {{hero.publisher}}
-        </p>
-      </div>
-      <div  class=" flex flex-column m-2 align-items-center">
-        <button class="btn btn-primary" [routerLink]="['/heroes/edit',hero.id]">
-            Editar
-        </button>
-        
-      </div>
-      <hr>
-      <a [routerLink]="['/heroes',hero.id]" class="m-2 justify-content-end align-items-center">Ver más </a>
-    </div>
-  
-  
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title text-center text-primary">{{ hero.superhero }}</h5>
+    <p class="card-text">
+        {{ hero.alter_ego }}
+      </p>
+    <img [src]="hero | hero" [alt]="hero.superhero" />
+    <p class="card-text">
+      {{ hero.first_appearance }}
+    </p>
+    <p class="card-text">
+      {{ hero.characters }}
+    </p>
+    
+    <p class="card-text text-muted">
+      {{ hero.publisher }}
+    </p>
+  </div>
+  <div class="flex flex-column m-2 align-items-center">
+    <button class="btn btn-primary" [routerLink]="['/heroes/edit', hero.id]">
+      Editar
+    </button>
+  </div>
+  <hr/>
+  <a
+    [routerLink]="['/heroes', hero.id]"
+    class="m-2 justify-content-end align-items-center"
+    (click)="getHero(hero.id)"
+    >Ver más
+  </a>
+</div>

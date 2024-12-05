@@ -1,1 +1,30 @@
-<p>hero-page works!</p>
+<div class="row">
+    <div class="col-6 text-center">
+        <h2>{{hero?.superhero}}</h2>
+          {{hero?.alter_ego}}  
+        <hr>       
+        <img [src]="hero! | hero" [alt]="hero?.superhero">
+        
+    </div>
+    <div class="col-6">
+        <h2>Detalles</h2>
+        <hr>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+        <hr>
+        <div>
+            <ul>
+                <li>
+                    {{hero?.characters}}  
+                </li>
+                <li>
+                    {{hero?.first_appearance}}  
+                </li>
+                <li>
+                    {{hero?.publisher}}  
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
