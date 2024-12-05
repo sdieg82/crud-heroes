@@ -1,1 +1,8 @@
-<p>list-hero-page works!</p>
+<div class="flex row">
+    <div 
+    *ngFor="let hero of heroesList" 
+    class="col-2 text-center align-items-center sm:col-4 md:col-3" 
+    >
+       <app-hero-component [hero]="hero"></app-hero-component>
+    </div>
+</div>
