@@ -17,22 +17,27 @@ import { HeroPipe } from '../../pipes/hero.pipe';
   templateUrl: './hero-page.component.html',
   styleUrl: './hero-page.component.css'
 })
-export class HeroPageComponent implements OnInit{
+export class HeroPageComponent implements OnInit {
+  
   public hero?:Hero
 
-    constructor (
-      private heroService:HeroesService,
-      private activatedRoute:ActivatedRoute,
-      private router:Router
-    ){}
-    ngOnInit(): void {
-    this.activatedRoute.params.pipe(
-        switchMap(({id})=> this.heroService.getHeroById(id))
-    ).subscribe(hero=>{
-      if(!hero) return this.router.navigate(['/heroes/list'])
-      this.hero=hero
-      console.log(this.hero)
-    return
-    })
+  constructor(
+    private heroService:HeroesService,
+    private activatedRoute:ActivatedRoute,
+    private router:Router
+  ){}
+
+  ngOnInit(): void {
+    this.activatedRoute.params
+    .pipe(
+      switchMap(({id})=>this.heroService.getHeroById(id)
+      )
+    )
+    .subscribe(
+      hero=> {
+        if(!hero)return  this.router.navigate(['/heroes/list'])
+        this.hero=hero
+        return;
+      })
   }
 }

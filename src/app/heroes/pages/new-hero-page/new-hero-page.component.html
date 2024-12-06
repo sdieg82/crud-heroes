@@ -1,1 +1,95 @@
-<p>new-hero-page works!</p>
+<div class="container mt-5">
+  <div class="form-container">
+    <h2 class="text-center text-primary">Formulario de Héroe</h2>
+    <form [formGroup]="heroForm" (ngSubmit)="addHero()">
+      <!-- Superhero -->
+      <div class="mb-3">
+        <label for="superhero" class="form-label">Superhéroe</label>
+        <input
+          type="text"
+          class="form-control"
+          id="superhero"
+          placeholder="Nombre del superhéroe"
+          required
+          formControlName="superHero"
+        />
+      </div>
+
+      <!-- Publisher -->
+      <div class="mb-3"> 
+        <label for="publisher" class="form-label">Editorial</label>
+        <select class="form-select" id="publisher" formControlName="publisher" required>
+          <option value="" selected disabled>Selecciona la editorial</option>
+          <option *ngFor="let publisher of listPublisher" [value]="publisher.id">
+            {{publisher.desc}}
+          </option>
+        </select>
+      </div>
+      
+
+      <!-- Alter Ego -->
+      <div class="mb-3">
+        <label for="alterEgo" class="form-label">Alter Ego</label>
+        <input
+          type="text"
+          class="form-control"
+          id="alterEgo"
+          placeholder="Alter ego del héroe"
+          required
+          formControlName="alter_ego"
+        />
+      </div>
+
+      <!-- First Appearance -->
+      <div class="mb-3">
+        <label for="firstAppearance" class="form-label"
+          >Primera Aparición</label
+        >
+        <input
+          type="date"
+          class="form-control"
+          id="firstAppearance"
+          required
+          formControlName="first_appearance"
+        />
+      </div>
+
+      <!-- Characters -->
+      <div class="mb-3">
+        <label for="characters" class="form-label">Personajes</label>
+        <textarea
+          class="form-control"
+          id="characters"
+          rows="3"
+          placeholder="Lista de personajes relacionados"
+          required
+          formControlName="characters"
+        ></textarea>
+      </div>
+
+      <!-- Alt Image -->
+      <div class="mb-3">
+        <label for="altImage" class="form-label"
+          >Imagen Alternativa (opcional)</label
+        >
+        <input
+          type="url"
+          class="form-control"
+          id="altImage"
+          placeholder="URL de la imagen alternativa"
+          formControlName="altImage"
+        />
+      </div>
+
+      <!-- Botones -->
+      <div class="d-flex justify-content-between">
+        <button type="reset" class="btn btn-secondary">Limpiar</button>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<pre>
+  {{currentHero | json }}
+</pre>

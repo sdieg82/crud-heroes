@@ -1,11 +1,18 @@
-<div class="row">
-  <div class="col-6 text-center">
+<div class="row g-4">
+  <!-- Columna 1: Información del héroe -->
+  <div class="col-12 col-md-6 text-center">
     <h2>{{ hero?.superhero }}</h2>
-    {{ hero?.alter_ego }}
+    <p>{{ hero?.alter_ego }}</p>
     <hr />
-    <img [src]="hero! | hero" [alt]="hero?.superhero" />
+    <img
+      [src]="hero! | hero"
+      [alt]="hero?.superhero"
+      class="img-fluid rounded"
+    />
   </div>
-  <div class="col-6">
+
+  <!-- Columna 2: Detalles -->
+  <div class="col-12 col-md-6">
     <h2>Detalles</h2>
     <hr />
     <p>
@@ -20,18 +27,12 @@
     <hr />
     <div>
       <ul>
-        <li>
-          {{ hero?.characters }}
-        </li>
-        <li>
-          {{ hero?.first_appearance }}
-        </li>
-        <li>
-          {{ hero?.publisher }}
-        </li>
+        <li>{{ hero?.characters }}</li>
+        <li>{{ hero?.first_appearance }}</li>
+        <li>{{ hero?.publisher }}</li>
       </ul>
     </div>
-    <button class="btn btn-primary" [routerLink]="['/heroes/list']">
+    <button class="btn btn-primary mt-3" [routerLink]="['/heroes/list']">
       Regresar
     </button>
   </div>
