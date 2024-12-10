@@ -39,7 +39,7 @@ export class HeroesService {
 
    updateHero(hero:Hero):Observable<Hero>{
     if(!hero.id) throw Error('Hero is required')
-    return this.http.patch<Hero>(`${this.url}/heroes${hero.id}`,hero)
+    return this.http.patch<Hero>(`${this.url}/heroes/${hero.id}`,hero)
    }
 }
 

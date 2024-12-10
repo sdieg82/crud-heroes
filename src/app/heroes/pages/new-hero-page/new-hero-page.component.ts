@@ -1,10 +1,12 @@
 import { CommonModule, JsonPipe } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { HeroesService } from '../../heroes.service';
 import { v4 as uuid } from 'uuid';
 import Swal from 'sweetalert2';
 import { Hero, Publisher } from '../../interfaces/Hero.interface';
+import { ActivatedRoute, Router } from '@angular/router';
+import { pipe, switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-new-hero-page',
@@ -13,8 +15,26 @@ import { Hero, Publisher } from '../../interfaces/Hero.interface';
   templateUrl: './new-hero-page.component.html',
   styleUrl: './new-hero-page.component.css',
 })
-export class NewHeroPageComponent {
-  constructor(private heroService: HeroesService) {}
+export class NewHeroPageComponent implements OnInit{
+  
+  constructor(
+    private heroService: HeroesService,
+    private activatedRoute:ActivatedRoute,
+    private router:Router
+  ) {}
+  
+  ngOnInit(): void {
+    if(!this.router.url.includes('edit'))return;
+
+    this.activatedRoute.params
+    .pipe(
+      switchMap(({id})=>this.heroService.getHeroById(id)),
+    ).subscribe(hero=>{
+      if(!hero) return this.router.navigate(['heroes/list']);
+      this.heroForm.reset(hero)
+      return;
+    })
+  }
 
   public listPublisher = [
     { id: 'DC Comics', desc: 'DC - Comics' },
@@ -40,13 +60,14 @@ export class NewHeroPageComponent {
   addHero() {
     if (this.currentHero.id) {
       if (this.heroForm.value.id) {
-        this.heroService.updateHero(this.currentHero).subscribe(() => {
+        this.heroService.updateHero(this.currentHero)
+        .subscribe(() => {
           Swal.fire({
             title: 'Actualizado!',
             text: 'El héroe ha sido actualizado con éxito.',
             icon: 'success',
           });
-          this.heroForm.reset();
+          console.log('creado exitosamente')
         });
         return;
       }
