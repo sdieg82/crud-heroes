@@ -1,7 +1,7 @@
 <div class="container mt-5">
   <div class="form-container">
     <h2 class="text-center text-primary">Formulario de Héroe</h2>
-    <form [formGroup]="heroForm" (ngSubmit)="addHero()">
+    <form [formGroup]="heroForm" (ngSubmit)="addHero()" >
       <!-- Superhero -->
       <div class="mb-3">
         <label for="superhero" class="form-label">Superhéroe</label>
@@ -82,11 +82,11 @@
       </div>
 
       <!-- Botones -->
-      <div class="d-flex justify-content-between">
-        <button type="reset" class="btn btn-secondary">Limpiar</button>
-        <button type="submit" class="btn btn-primary">Guardar</button>
-      </div>
     </form>
+      <div class="d-flex justify-content-between">
+        <button class="btn btn-danger"  (click)="deleteHeroById()">Eliminar</button>
+        <button class="btn btn-primary" (click)="addHero()">Guardar</button>
+      </div>
   </div>
 </div>
 

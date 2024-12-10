@@ -168,33 +168,6 @@
       "characters": "Norrin Radd"
     },
     {
-      "id": "7971cf54-d1c2-44f2-b710-43f91361d972",
-      "superHero": "Prueba de Heroe",
-      "alter_ego": "Ego",
-      "publisher": "",
-      "first_appearance": "2024-12-04",
-      "characters": "Anyone",
-      "altImage": ""
-    },
-    {
-      "id": "5228ea71-5088-4165-afe4-a3763d05b93f",
-      "superHero": "Super ego",
-      "alter_ego": "Alter di ego",
-      "publisher": "",
-      "first_appearance": "2024-12-25",
-      "characters": "ego",
-      "altImage": ""
-    },
-    {
-      "id": "71a99762-c56c-4aa2-a974-eeaf06db6007",
-      "superHero": "Super ego",
-      "alter_ego": "Alter di ego",
-      "publisher": "DC Comics",
-      "first_appearance": "2024-12-14",
-      "characters": "Alter super ego",
-      "altImage": ""
-    },
-    {
       "id": "a924db86-71ec-4ef9-880a-f28382044955",
       "superHero": "Super Legos",
       "alter_ego": "Legos",
@@ -206,10 +179,10 @@
     {
       "id": "18e329a3-7328-48f2-a6d1-2da27845b838",
       "superHero": "Super Legos",
-      "alter_ego": "Legos",
+      "alter_ego": "Angular",
       "publisher": "DC Comics",
       "first_appearance": "2024-12-12",
-      "characters": "asd",
+      "characters": "Characters",
       "altImage": "https://w7.pngwing.com/pngs/1014/365/png-transparent-angular-js-full-logo-tech-companies-thumbnail.png"
     }
   ]

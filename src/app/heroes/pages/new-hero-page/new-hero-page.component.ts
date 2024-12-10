@@ -25,13 +25,12 @@ export class NewHeroPageComponent implements OnInit{
   
   ngOnInit(): void {
     if(!this.router.url.includes('edit'))return;
-
     this.activatedRoute.params
     .pipe(
       switchMap(({id})=>this.heroService.getHeroById(id)),
     ).subscribe(hero=>{
       if(!hero) return this.router.navigate(['heroes/list']);
-      this.heroForm.reset(hero)
+      this.heroForm.reset(hero);
       return;
     })
   }
@@ -94,6 +93,22 @@ export class NewHeroPageComponent implements OnInit{
           this.heroForm.reset();
         }
       });
+    }
+
+    deleteHeroById():void{ 
+        this.activatedRoute.params
+        .pipe(
+          switchMap(({id})=>this.heroService.deleteHero(id)))
+        .subscribe(
+          resp=>{
+            Swal.fire({
+              title: 'Eliminado!',
+              text: 'El héroe ha sido eliminado con éxito.',
+              icon: 'success',
+            });
+            console.log(resp)
+          }
+        )
     }
   }
 
