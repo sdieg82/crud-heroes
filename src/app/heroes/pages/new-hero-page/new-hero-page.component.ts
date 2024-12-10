@@ -7,11 +7,12 @@ import Swal from 'sweetalert2';
 import { Hero, Publisher } from '../../interfaces/Hero.interface';
 import { ActivatedRoute, Router } from '@angular/router';
 import { pipe, switchMap } from 'rxjs';
+import { HeroPipe } from '../../pipes/hero.pipe';
 
 @Component({
   selector: 'app-new-hero-page',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, JsonPipe],
+  imports: [ReactiveFormsModule, CommonModule, JsonPipe,HeroPipe],
   templateUrl: './new-hero-page.component.html',
   styleUrl: './new-hero-page.component.css',
 })
@@ -106,7 +107,7 @@ export class NewHeroPageComponent implements OnInit{
               text: 'El héroe ha sido eliminado con éxito.',
               icon: 'success',
             });
-            console.log(resp)
+            this.router.navigate(['heroes/list'])
           }
         )
     }

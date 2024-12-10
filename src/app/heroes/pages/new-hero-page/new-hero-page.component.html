@@ -1,4 +1,7 @@
-<div class="container mt-5">
+<div class="row">
+    <div class="col-6">
+        
+<div class=" ">
   <div class="form-container">
     <h2 class="text-center text-primary">Formulario de Héroe</h2>
     <form [formGroup]="heroForm" (ngSubmit)="addHero()" >
@@ -88,8 +91,11 @@
         <button class="btn btn-primary" (click)="addHero()">Guardar</button>
       </div>
   </div>
+</div>      
+    </div>
+    <div class="col-6 text-center shadow">
+      <img class="img-fluid rounded" [src]="currentHero| hero" alt="Imagen del heroe" />
+    </div>
 </div>
 
-<pre>
-  {{currentHero | json }}
-</pre>
+
