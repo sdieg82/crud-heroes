@@ -26,7 +26,8 @@ export class ListHeroPageComponent implements OnInit {
 
 
   listHeroes(){
-    this.heroeService.getHeroes().subscribe(
+    this.heroeService.getHeroes()
+    .subscribe(
       (result)=>{
         this.heroesList=result
       }
